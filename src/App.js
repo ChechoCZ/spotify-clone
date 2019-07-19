@@ -1,10 +1,15 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import Sidebar from './components/Sidebar';
 import Player from './components/Player';
+import Header from './components/Header';
+
+import Routes from './routes';
 
 import { createGlobalStyle } from 'styled-components';
-import { Wrapper, Container } from './styles/components';
+import { Wrapper, Container, Content } from './styles/components';
+
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -29,13 +34,19 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => (
   <React.Fragment>
-    <GlobalStyle />
+    <BrowserRouter>
+      <GlobalStyle />
       <Wrapper>
         <Container>
           <Sidebar />
+          <Content>
+            <Header />
+            <Routes />
+          </Content>
         </Container>
         <Player />
       </Wrapper>
+    </BrowserRouter>
   </React.Fragment>
 );
 
